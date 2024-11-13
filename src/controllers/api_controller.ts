@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import User from '../models/User.js';
 import Thought from '../models/Thought.js';
 
-// Get all users
 export async function getAllUsers(_: Request, res: Response) {
     try {
         const users = await User.find().populate('thoughts').populate('friends');
@@ -14,7 +13,6 @@ export async function getAllUsers(_: Request, res: Response) {
     }
 }
 
-// Get a single user by ID
 export async function getUserById(req: Request, res: Response) {
     const user_id = req.params.user_id;
 
@@ -26,7 +24,6 @@ export async function getUserById(req: Request, res: Response) {
     res.json(user);
 }
 
-// Create a new user
 export async function createNewUser(req: Request, res: Response) {
     try {
         const user = await User.create(req.body);
@@ -51,7 +48,6 @@ export async function createNewUser(req: Request, res: Response) {
     }
 }
 
-// Update a user by ID
 export async function updateUserById(req: Request, res: Response) {
     try {
         const user_id = req.params.user_id;
@@ -68,7 +64,6 @@ export async function updateUserById(req: Request, res: Response) {
     }
 }
 
-// Delete a user by ID
 export async function deleteUserById(req: Request, res: Response) {
     try {
         const user_id = req.params.user_id;
@@ -85,7 +80,6 @@ export async function deleteUserById(req: Request, res: Response) {
     }
 }
 
-// Add a friend to a user's friend list
 export async function addFriendToUserFriendList(req: Request, res: Response) {
     try {
         const { user_id, friend_id } = req.body;
@@ -106,7 +100,6 @@ export async function addFriendToUserFriendList(req: Request, res: Response) {
     }
 }
 
-// Remove a friend from a user's friend list
 export async function removeFriendFromUserFriendList(req: Request, res: Response) {
     try {
         const { user_id, friend_id } = req.body;
@@ -127,7 +120,6 @@ export async function removeFriendFromUserFriendList(req: Request, res: Response
     }
 }
 
-// Get all thoughts
 export async function getAllThoughts(_: Request, res: Response) {
     try {
         const users = await Thought.find().populate('thoughts').populate('friends');
@@ -139,7 +131,6 @@ export async function getAllThoughts(_: Request, res: Response) {
     }
 }
 
-// Get a single thought by ID
 export async function getSingleThoughtById(req: Request, res: Response) {
     try {
         const thought_id = req.params.thought_id;
@@ -156,7 +147,6 @@ export async function getSingleThoughtById(req: Request, res: Response) {
     }
 }
 
-// Create a thought for a user by ID
 export async function createThoughtForUserById(req: Request, res: Response) {
     try {
         const { user_id, text } = req.body;
