@@ -1,6 +1,5 @@
 import User from '../models/User.js';
 import Thought from '../models/Thought.js';
-// Get all users
 export async function getAllUsers(_, res) {
     try {
         const users = await User.find().populate('thoughts').populate('friends');
@@ -11,7 +10,6 @@ export async function getAllUsers(_, res) {
         res.status(500).json({ message: 'Error fetching users' });
     }
 }
-// Get a single user by ID
 export async function getUserById(req, res) {
     const user_id = req.params.user_id;
     const user = await User.findById(user_id).populate({
@@ -20,7 +18,6 @@ export async function getUserById(req, res) {
     });
     res.json(user);
 }
-// Create a new user
 export async function createNewUser(req, res) {
     try {
         const user = await User.create(req.body);
@@ -43,7 +40,6 @@ export async function createNewUser(req, res) {
         });
     }
 }
-// Update a user by ID
 export async function updateUserById(req, res) {
     try {
         const user_id = req.params.user_id;
@@ -60,7 +56,6 @@ export async function updateUserById(req, res) {
         res.status(500).json({ message: 'Error updating user' });
     }
 }
-// Delete a user by ID
 export async function deleteUserById(req, res) {
     try {
         const user_id = req.params.user_id;
@@ -77,7 +72,6 @@ export async function deleteUserById(req, res) {
         res.status(500).json({ message: 'Error deleting user' });
     }
 }
-// Add a friend to a user's friend list
 export async function addFriendToUserFriendList(req, res) {
     try {
         const { user_id, friend_id } = req.body;
@@ -97,7 +91,6 @@ export async function addFriendToUserFriendList(req, res) {
         res.status(500).json({ message: 'Error adding friend' });
     }
 }
-// Remove a friend from a user's friend list
 export async function removeFriendFromUserFriendList(req, res) {
     try {
         const { user_id, friend_id } = req.body;
@@ -117,7 +110,6 @@ export async function removeFriendFromUserFriendList(req, res) {
         res.status(500).json({ message: 'Error removing friend' });
     }
 }
-// Get all thoughts
 export async function getAllThoughts(_, res) {
     try {
         const users = await Thought.find().populate('thoughts').populate('friends');
@@ -128,7 +120,6 @@ export async function getAllThoughts(_, res) {
         res.status(500).json({ message: 'Error fetching users' });
     }
 }
-// Get a single thought by ID
 export async function getSingleThoughtById(req, res) {
     try {
         const thought_id = req.params.thought_id;
@@ -145,7 +136,6 @@ export async function getSingleThoughtById(req, res) {
         res.status(500).json({ message: 'Error fetching thought' });
     }
 }
-// Create a thought for a user by ID
 export async function createThoughtForUserById(req, res) {
     try {
         const { user_id, text } = req.body;
