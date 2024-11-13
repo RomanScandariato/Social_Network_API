@@ -45,7 +45,7 @@ Be able to use API and test routes inside of Insomnia
 
 ## Links
 Github: https://github.com/RomanScandariato/Social_Network_API <br><br>
-Walkthrough Video Link:  <br><br >
+Walkthrough Video Link: https://drive.google.com/file/d/14M6WkiuD7IFZODjwg3412kiTfxc_DO4_/view <br><br >
 
 ## License
 
